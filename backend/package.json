@@ -1,0 +1,20 @@
+{
+  "name": "youtube-downloader",
+  "version": "1.0.0",
+  "description": "Youtube video downloader applicaation",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "Youtube",
+    "Youtube",
+    "downloader"
+  ],
+  "author": "Soumodip Paul",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "request": "^2.88.2"
+  }
+}
