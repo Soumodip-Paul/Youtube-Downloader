@@ -11,7 +11,7 @@ export const Home = () => {
         e.preventDefault()
         if (!id || id === '') return
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_HOST}/video/${id}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_HOST || "https://imaginary-chipped-mine.glitch.me"}/video/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
