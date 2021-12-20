@@ -9,9 +9,7 @@ const port = process.env.PORT || 8000
 const app = express()
 app.use(cors())
 app.use(express.json())
-app.get('/', (req,res) => {
-    res.send('hi')
-})
+
 /**
  * End point to get  video details from YTStream api
  * @param id = youtube video id
@@ -56,6 +54,10 @@ app.post('/download',(req,res)=> {
         console.log(e)
         return res.status(404).send("Not found")
     }    
+})
+
+app.get('/*', (req,res)=> {
+    res.send("Successfully created")
 })
 
 app.listen(port, ()=>{
