@@ -16,7 +16,10 @@ export const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation" onLoad={onNavLoad}>
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">SpTube</Link>
+                <Link className="navbar-brand d-flex align-items-center justify-content-center" to="/">
+                    <img src="/assets/favicon/favicon-32x32.png" alt="SpTube" width="32" height="32"/>
+                    <span className='px-2'>SpTube</span>
+                </Link>
                 <button className="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -27,16 +30,15 @@ export const Navbar = () => {
                             <NavLink className={({isActive}) => "nav-link " + (isActive? "active": '') } to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className={({isActive}) => "nav-link " + (isActive? "active": '') } to="/">About</NavLink>
+                            <NavLink className={({isActive}) => "nav-link " + (isActive? "active": '') } to="/about">About</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className={({isActive}) => "nav-link " + (isActive? "active": '') } to="/">Contact</NavLink>
+                            <NavLink className={({isActive}) => "nav-link " + (isActive? "active": '') } to="/contact">Contact</NavLink>
                         </li>
-                        {/* 
                         <li className="nav-item">
-                            <NavLink className={({isActive}) => "nav-link " + (isActive? "active": '') } to="/c">Switch account</NavLink>
+                            <NavLink className={({isActive}) => "nav-link " + (isActive? "active": '') } to="/terms-and-condition">Terms</NavLink>
                         </li>
-                        <li className="nav-item dropdown">
+                        {/*<li className="nav-item dropdown">
                             <NavLink className="nav-link dropdown-toggle" href="/" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
                             <ul className="dropdown-menu" aria-labelledby="dropdown01">
                                 <li><a className="dropdown-item" href="/">Action</a></li>
