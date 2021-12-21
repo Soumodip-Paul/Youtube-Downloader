@@ -48,6 +48,7 @@ export const Home = () => {
                 }
                 if (data.status.match(/fail/i)){
                     setTitle()
+                    setId('')
                     alert("Invalid Link or Id")
                 }
                 setVideos(null)

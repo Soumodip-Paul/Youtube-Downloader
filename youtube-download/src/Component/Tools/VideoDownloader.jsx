@@ -91,7 +91,12 @@ export const VideoDownloader = ({ videos }) => {
                 <div className="row px-2 py-3 px-md-0">
                     <div className="col-12 col-md-4">
                         <img width={'auto'} height={'auto'} className='m-auto w-100' src={videos.thumb} alt="VideoThumbnail" />
-                        <p className='py-3'><b>{videos.title}</b></p>
+                        <p className='py-3'>
+                            <b>{videos.title}</b>
+                            <br />
+                            <b>Views</b>: {videos.view_count} <br />
+                            {videos.description && videos.description.substring(0,250) + (videos.description.length > 120 && "...")}
+                        </p>
                     </div>
                     <div className="col-12 col-md-8">
                         <ul className="nav nav-tabs ">

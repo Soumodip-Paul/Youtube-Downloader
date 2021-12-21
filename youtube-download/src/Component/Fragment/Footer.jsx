@@ -10,7 +10,7 @@ export const Footer = () => {
                 </div>
                 <div className="col-md-4 d-flex align-items-center justify-content-center">
                     <Link to="/" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <img src="/assets/favicon/favicon-32x32.png" alt="SpTube" width="32" height="32" />
+                        <img src="/assets/favicon/favicon-32x32.png" alt="SpTube" width="48" height="48" className="rounded-circle p-2" style={{background: '#3b88c3'}}/>
                     </Link>
                 </div>
                 <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
