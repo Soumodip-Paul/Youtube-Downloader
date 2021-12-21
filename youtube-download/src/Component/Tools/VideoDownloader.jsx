@@ -22,7 +22,7 @@ export const VideoDownloader = ({ videos }) => {
         const item = videos.link[key]
         setTextData(`Please Wait Download is in progress `)
         setLoading(true)
-        const api = `${process.env.REACT_APP_API_HOST || "https://imaginary-chipped-mine.glitch.me"}/download`
+        const api = `${process.env.REACT_APP_API_HOST}/download`
         try {
             const response = await fetch(api, {
                 method: 'POST',

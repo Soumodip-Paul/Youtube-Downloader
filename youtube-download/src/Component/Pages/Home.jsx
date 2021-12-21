@@ -32,7 +32,7 @@ export const Home = () => {
             } catch (error) {
                 
             }
-            const response = await fetch(`${process.env.REACT_APP_API_HOST || "https://imaginary-chipped-mine.glitch.me"}/video/${videoId}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_HOST}/video/${videoId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
