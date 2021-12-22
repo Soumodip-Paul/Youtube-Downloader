@@ -10,7 +10,7 @@ export const About = () => {
         setTitle("About")
     }, [])
     return (
-        <div className="container marketing mt-5">
+        <div className="container marketing mt-5 no-link">
             <h2><strong>About US</strong></h2>
             <p className='py-3'>
                 yDownloader YouTube Downloader is a leading downloader that focuses on free HD video services. You can find massive amount of video &amp; music, and also download content from various websites, including but not limited to Youtube, Facebook, Instagram. Easy, fast, and small, yDownloader YouTube Downloader is your best choice for video download!
@@ -75,7 +75,7 @@ export const About = () => {
             </p>
             <br />
             <h3><strong>About Author</strong></h3>
-            <p className='no-link'>
+            <p>
                 <strong>
                     <a href="http://github.com/Soumodip-Paul" target="_blank" rel="noopener noreferrer" className='text-decoration-none'>
                         Soumodip Paul
@@ -89,21 +89,23 @@ export const About = () => {
                 This project is hosted using <a href="https://azure.microsoft.com/en-in/"> Microsoft Azure </a>
                 free service. So I can not gurantee the uptime of our website. Some time the video conversion
                 process maybe very time consuming.
-                Please support me on:
-                <ul className="icon-list mt-2">
-                    <li><a href="https://www.youtube.com/channel/UCOFwfN-LJ7wGvAOovAwpjxg?sub_confirmation=1">Youtube</a></li>
-                    <li><a href="https://twitter.com/soumodippaul6">Twitter</a></li>
-                    <li><a href="https://instagram.com/soumodippaul64">Instagram</a></li>
-                    <li><a href="https://www.linkedin.com/in/soumodip-paul-10032002/">LinkedIn</a></li>
-                    <li><a href="https://github.com/Soumodip-paul">Github</a></li>
-                </ul>
-                So that I can improve this project and Make more awesome projects like this.</p>
-            <p className='mb-5'>
-                Some websites by me:
-                <ul className="icon-list mt-2">
-                    <li><a href="https://soumodip-paul.github.io/CoMitra">CoMitra - vaccine traker and finder</a></li>
-                </ul>
+                Please support me on:</p>
+            <ul className="icon-list mt-2">
+                <li><a href="https://www.youtube.com/channel/UCOFwfN-LJ7wGvAOovAwpjxg?sub_confirmation=1">Youtube</a></li>
+                <li><a href="https://twitter.com/soumodippaul6">Twitter</a></li>
+                <li><a href="https://instagram.com/soumodippaul64">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/in/soumodip-paul-10032002/">LinkedIn</a></li>
+                <li><a href="https://github.com/Soumodip-paul">Github</a></li>
+            </ul>
+            <p>
+                So that I can improve this project and Make more awesome projects like this.
             </p>
+            <p className=''>
+                Some websites by me:
+            </p>
+            <ul className="icon-list">
+                <li><a href="https://soumodip-paul.github.io/CoMitra">CoMitra - vaccine traker and finder</a></li>
+            </ul>
         </div>
     )
 }

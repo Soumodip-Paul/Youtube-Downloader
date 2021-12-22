@@ -59,8 +59,12 @@
 }
   
 
-.no-link * {
+.no-link a {
     text-decoration: none;
+}
+
+.no-link a:hover {
+    text-decoration: underline;
 }
 
 /* RESPONSIVE CSS
