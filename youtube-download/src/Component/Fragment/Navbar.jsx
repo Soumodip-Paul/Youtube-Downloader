@@ -16,8 +16,8 @@ export const Navbar = () => {
         <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation" onLoad={onNavLoad}>
             <div className="container-fluid">
                 <Link className="navbar-brand d-flex align-items-center justify-content-center" to="/">
-                    <img src="/assets/favicon/favicon-32x32.png" alt="SpTube" width="32" height="32"/>
-                    <span className='px-2'>SpTube</span>
+                    <img src="/assets/favicon/favicon-32x32.png" alt="{process.env.REACT_APP_APP_NAME}" width="32" height="32"/>
+                    <span className='px-2'>{process.env.REACT_APP_APP_NAME}</span>
                 </Link>
                 <button className="navbar-toggler p-0 border-0" type="button" id="navbarCollaspe" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

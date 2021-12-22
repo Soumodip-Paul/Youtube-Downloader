@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { VideoDownloader } from '../Tools/VideoDownloader'
 import '../../css/home.css'
 import { setTitle } from '../utils/Utils'
+import { Features } from '../Fragment/Features'
 
 export const Home = () => {
     const [videos, setVideos] = useState(null)
@@ -90,6 +91,7 @@ export const Home = () => {
             </div>
 
             <VideoDownloader videos={videos} />
+            <Features />
         </div>
     )
 }

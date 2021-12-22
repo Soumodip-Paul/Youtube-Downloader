@@ -18,7 +18,7 @@ export const VideoDownloader = ({ videos }) => {
     }
 
     const download = async (key) => {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+        document.getElementById('DownloadProgressBar').scrollIntoView()
         const item = videos.link[key]
         setTextData(`Please Wait Download is in progress `)
         setLoading(true)
@@ -63,7 +63,7 @@ export const VideoDownloader = ({ videos }) => {
             document.body.appendChild(elem)
             elem.click()
             elem.remove()
-            window.scrollTo({top: '0px', behavior: 'smooth'})
+            window.scrollTo({ top: '0px', behavior: 'smooth' })
             setTextData(`${filename} Downloaded successfully`)
         } catch (e) {
             console.error(e)
@@ -90,12 +90,18 @@ export const VideoDownloader = ({ videos }) => {
                 <h3>Your Search Results : </h3>
                 <div className="row px-2 py-3 px-md-0">
                     <div className="col-12 col-md-4">
-                        <img width={'auto'} height={'auto'} className='m-auto w-100' src={videos.thumb} alt="VideoThumbnail" />
+                        <div className="position-relative">
+                            <img width={'auto'} height={'auto'} className='m-auto w-100' src={videos.thumb} alt="VideoThumbnail" />
+                            <span className="position-absolute top-0 start-0 translate-end mx-2 my-2 badge rounded-pill bg-primary">
+                                {videos.length}
+                                <span className="visually-hidden">Duration</span>
+                            </span>
+                        </div>
                         <p className='py-3'>
                             <b>{videos.title}</b>
                             <br />
                             <b>Views</b>: {videos.view_count} <br />
-                            {videos.description && videos.description.substring(0,250) + (videos.description.length > 120 && "...")}
+                            {videos.description && videos.description.substring(0, 250) + (videos.description.length > 120 && "...")}
                         </p>
                     </div>
                     <div className="col-12 col-md-8">
@@ -118,7 +124,7 @@ export const VideoDownloader = ({ videos }) => {
                                     let meta = video_data[key]
                                     return <tr key={key}>
                                         <td>{meta.resolution} ( .{meta.container} )</td>
-                                        <td className='text-center'>{item[1]}</td>
+                                        <td className='text-center'>{item[1] || <> &#8212; </>}</td>
                                         <td className='text-end'><button className='btn btn-success btn-sm' onClick={e => download(key)}>Download</button></td>
                                     </tr>
                                 }
@@ -127,7 +133,7 @@ export const VideoDownloader = ({ videos }) => {
                         </table>
                     </div>
                 </div>
-                <div className='container-fluid text-center' style={{ minHeight: '128px' }}>
+                <div className='container-fluid text-center' id='DownloadProgressBar' style={{ minHeight: '128px' }}>
                     {loading &&
                         <>
                             <p>
