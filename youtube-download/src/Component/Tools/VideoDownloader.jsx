@@ -18,7 +18,7 @@ export const VideoDownloader = ({ videos }) => {
     }
 
     const download = async (key) => {
-        document.getElementById('DownloadProgressBar').scrollIntoView()
+        document.getElementById('scrollToProgressBar').scrollIntoView()
         const item = videos.link[key]
         setTextData(`Please Wait Download is in progress `)
         setLoading(true)
@@ -78,7 +78,7 @@ export const VideoDownloader = ({ videos }) => {
     const NavTabs = ({ data, children }) => {
         return (
             <li className="nav-item">
-                <button disabled={contentType === data} className={`nav-link px-4 py-2 ${(contentType === data) && 'active'}`} onClick={() => {
+                <button disabled={contentType === data} className={`nav-link px-md-4 py-md-2 ${(contentType === data) && 'active'}`} onClick={() => {
                     setContentType(data)
                 }}>{children}</button>
             </li>
@@ -132,15 +132,15 @@ export const VideoDownloader = ({ videos }) => {
                             </tbody>
                         </table>
                     </div>
+                    <div className="visually-hidden" id="scrollToProgressBar">End</div>
                 </div>
-                <div className='container-fluid text-center' id='DownloadProgressBar' style={{ minHeight: '128px' }}>
+                <div className='container-fluid d-flex flex-column justify-content-center ' id='DownloadProgressBar' style={{ minHeight: '64px' }}>
                     {loading &&
                         <>
-                            <p>
+                            <p className='mx-auto mt-auto fw-bold'>
                                 {textData} {progress !== 0 && ` ( ${Math.floor(progress)}% ) `}
                             </p>
-
-                            <div className="progress">
+                            <div className="progress w-100 mt-auto">
                                 <div className="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style={{ width: `${progress}%` }} aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </>}

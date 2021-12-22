@@ -1,25 +1,17 @@
-import '../../css/offcanvas.css'
-import { useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import '../../css/offcanvas.css'
+
 export const Navbar = () => {
-    const onNavLoad = () => {
-        document.querySelector('#navbarCollaspe').addEventListener('click', function () {
-            document.querySelector('.offcanvas-collapse').classList.toggle("open")
-        })
-    }
-
-    useEffect(() => {
-        onNavLoad()
-    })
-
     return (
-        <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation" onLoad={onNavLoad}>
+        <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
             <div className="container-fluid">
                 <Link className="navbar-brand d-flex align-items-center justify-content-center" to="/">
-                    <img src="/assets/favicon/favicon-32x32.png" alt="{process.env.REACT_APP_APP_NAME}" width="32" height="32"/>
+                    <img src="/assets/favicon/apple-touch-icon.png" alt={`${process.env.REACT_APP_APP_NAME}`} width="32" height="32"/>
                     <span className='px-2'>{process.env.REACT_APP_APP_NAME}</span>
                 </Link>
-                <button className="navbar-toggler p-0 border-0" type="button" id="navbarCollaspe" aria-label="Toggle navigation">
+                <button className="navbar-toggler p-0 border-0" type="button" id="navbarCollaspe" aria-label="Toggle navigation" onClick={() =>{
+                    document.querySelector('.offcanvas-collapse').classList.toggle("open")
+                }}>
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
@@ -32,7 +24,7 @@ export const Navbar = () => {
                             <NavLink className={({ isActive }) => "nav-link " + (isActive ? "active" : '')} to="/about">About</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className={({ isActive }) => "nav-link " + (isActive ? "active" : '')} to="/contact">Contact</NavLink>
+                            <NavLink className={({ isActive }) => "nav-link " + (isActive ? "active" : '')} to="/privacy-policy">Privacy</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className={({ isActive }) => "nav-link " + (isActive ? "active" : '')} to="/terms-and-condition">Terms</NavLink>
