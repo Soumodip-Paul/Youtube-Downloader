@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { data as video_data, data2 } from './test'
+import { data as video_data, data2 } from './Resolutions'
 
 export const VideoDownloader = ({ videos }) => {
     /**
