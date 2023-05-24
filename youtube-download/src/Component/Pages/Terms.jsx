@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
-import { setTitle } from '../utils/Utils'
+import { setDescription, setTitle } from '../utils/Utils'
 
 export const Terms = () => {
     useEffect(() => {
         setTitle("Terms and Conditions")
+        setDescription(`These terms and conditions outline the rules and regulations for the use of ${process.env.REACT_APP_APP_NAME}'s Website, located at {process.env.REACT_APP_APP_NAME}.ga`)
     }, [])
     return (
         <div className='container py-4'>

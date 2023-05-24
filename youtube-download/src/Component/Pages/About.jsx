@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { setTitle } from '../utils/Utils'
+import { setDescription, setTitle } from '../utils/Utils'
 import { data } from '../Tools/Resolutions'
 import svgIcon from '../svg/feature-icons.svg'
 import "../../css/about.css"
@@ -8,12 +8,13 @@ import "../../css/about.css"
 export const About = () => {
     useEffect(() => {
         setTitle("About")
+        setDescription(`${process.env.REACT_APP_APP_NAME} YouTube Downloader is a leading downloader that focuses on free HD video services. You can find massive amount of video &amp; music, and also download content from various websites, including but not limited to Youtube, Facebook, Instagram. Easy, fast, and small, ${process.env.REACT_APP_APP_NAME} YouTube Downloader is your best choice for video download!`)
     }, [])
     return (
         <div className="container marketing mt-5 no-link">
             <h2><strong>About US</strong></h2>
             <p className='py-3'>
-                yDownloader YouTube Downloader is a leading downloader that focuses on free HD video services. You can find massive amount of video &amp; music, and also download content from various websites, including but not limited to Youtube, Facebook, Instagram. Easy, fast, and small, yDownloader YouTube Downloader is your best choice for video download!
+                {process.env.REACT_APP_APP_NAME} YouTube Downloader is a leading downloader that focuses on free HD video services. You can find massive amount of video &amp; music, and also download content from various websites, including but not limited to Youtube, Facebook, Instagram. Easy, fast, and small, {process.env.REACT_APP_APP_NAME} YouTube Downloader is your best choice for video download!
             </p>
             <h3><strong>Features</strong></h3>
             <div className="row">

@@ -1,6 +1,7 @@
-import express from 'express';
+import express, { response } from 'express';
 import request from 'request';
 import cors from 'cors'
+import ytdl from 'ytdl-core';
 import { config } from 'dotenv';
 
 config()
@@ -41,19 +42,29 @@ app.post('/video/:id', (req,res) => {
  * */ 
 app.post('/download',(req,res)=> {
     const reqUrl = req.body.url
-    console.log(req.body)
+    //console.log(req.body)
     try{
-        const checkUrl = new URL(reqUrl)
-        if (checkUrl.host !== "redirector.googlevideo.com"){
-            console.log(checkUrl.host) 
-            throw new Error("Invalid url")
-            }
+        // const checkUrl = new URL(reqUrl)
+        // if (checkUrl.host !== "redirector.googlevideo.com"){
+        //     console.log(checkUrl.host) 
+        //     throw new Error("Invalid url")
+        //     }
         return request(reqUrl).pipe(res)
     }
     catch(e) {
         console.log(e)
         return res.status(404).send("Not found")
     }    
+})
+// To be implemented later replacing rapid api
+app.get('/test', async (req,res) =>{
+    const info = await ytdl.getInfo('https://www.youtube.com/watch?v=C70GJYVoZ4Y')
+    const adaptive = info.player_response.streamingData.adaptiveFormats
+    const streaming  = info.player_response.streamingData.formats
+    let response = streaming
+    response.push(...adaptive)
+    // info.stre
+    res.send({data: response, formats: info.formats})
 })
 
 app.get('/*', (req,res)=> {

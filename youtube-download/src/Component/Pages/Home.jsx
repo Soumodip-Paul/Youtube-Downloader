@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { VideoDownloader } from '../Tools/VideoDownloader'
 import '../../css/home.css'
-import { setTitle } from '../utils/Utils'
+import { setTitle, setDescription } from '../utils/Utils'
 import { Features } from '../Fragment/Features'
 
 export const Home = () => {
@@ -12,6 +12,7 @@ export const Home = () => {
 
     useEffect(() => {
         setTitle()
+        setDescription(`${process.env.REACT_APP_APP_NAME} - Free Online video downloader for YouTube to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A. Download as your requirement for absolutely free of cost. No login required.`)
     }, [])
 
     const submit = async e => {
@@ -45,6 +46,7 @@ export const Home = () => {
 
                 if (data.status.match(/ok/i)) {
                     setTitle( "Search results for " + videoId)
+                    //console.log(data)
                     return setVideos(data)
                 }
                 if (data.status.match(/fail/i)){

@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
-import { setTitle } from '../utils/Utils'
+import { setDescription, setTitle } from '../utils/Utils'
 
 export const Privacy = () => {
     useEffect(() => {
         setTitle("Privacy Policy")
+        setDescription(`At ${process.env.REACT_APP_APP_NAME}, accessible at {process.env.REACT_APP_APP_NAME}.ga, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by {process.env.REACT_APP_APP_NAME} and how we use it.`)
     }, [])
     return (
         <div className='container py-4'>

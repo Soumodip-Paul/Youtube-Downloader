@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { data as video_data } from './Resolutions'
+import { data as video_data, data2 } from './test'
 
 export const VideoDownloader = ({ videos }) => {
     /**
@@ -14,7 +14,18 @@ export const VideoDownloader = ({ videos }) => {
     const [progress, setProgress] = useState(0)
 
     const filterData = (key) => {
-        return video_data[key].content === contentType
+        const item = video_data[`${key}`]
+        // console.log(key)
+        if (item === undefined) return (data2[key] && data2[key].content===contentType)
+        switch(contentType){
+            case "audio/video":
+                return (item.hasAudio===true) && (item.hasVideo===true);
+            case "video":
+                return (item.hasAudio===false) && (item.hasVideo===true);
+            case "audio":
+                return (item.hasAudio===true) && (item.hasVideo===false);
+        }    
+        return ((item.hasAudio===false) && (item.hasVideo===false))
     }
 
     const download = async (key) => {
@@ -33,7 +44,7 @@ export const VideoDownloader = ({ videos }) => {
             })
             if (!response.ok) {
                 let object = await response.text()
-                console.log(object)
+                // console.log(object)
                 setTextData("Some error during download")
                 return
             }
@@ -66,7 +77,7 @@ export const VideoDownloader = ({ videos }) => {
             window.scrollTo({ top: '0px', behavior: 'smooth' })
             setTextData(`${filename} Downloaded successfully`)
         } catch (e) {
-            console.error(e)
+            // console.error(e)
             setTextData("Some error occured")
         }
         setTimeout(() => {
@@ -121,9 +132,10 @@ export const VideoDownloader = ({ videos }) => {
                             <tbody>
                                 {Object.keys(videos.link).filter(filterData).map(key => {
                                     let item = videos.link[key]
-                                    let meta = video_data[key]
+                                    let meta = video_data[`${key}`] || data2[key]
+                                    // console.log(item,meta)
                                     return <tr key={key}>
-                                        <td>{meta.resolution} ( .{meta.container} )</td>
+                                        <td>{meta.qualityLabel|| meta.resolution || `${meta.audioBitrate} kbps` } ( .{meta.container} )</td>
                                         <td className='text-center'>{item[1] || <> &#8212; </>}</td>
                                         <td className='text-end'><button className='btn btn-success btn-sm' onClick={e => download(key)}>Download</button></td>
                                     </tr>
