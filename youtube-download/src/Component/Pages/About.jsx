@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { setDescription, setTitle } from '../utils/Utils'
-import { data } from '../Tools/Resolutions'
+import { data, data2 } from '../Tools/Resolutions'
 import svgIcon from '../svg/feature-icons.svg'
 import "../../css/about.css"
 
@@ -55,11 +55,18 @@ export const About = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {Object.keys(data).map(key =>
+                        {Object.keys(data2).map(key =>
+                            <tr key={key}>
+                                <td>{data2[key].container}</td>
+                                <td>{data2[key].content}</td>
+                                <td>{data2[key].resolution}</td>
+                            </tr>
+                        )}
+                        {Object.keys(data).filter(x=> !Object.keys(data2).includes(x)).map(key =>
                             <tr key={key}>
                                 <td>{data[key].container}</td>
                                 <td>{data[key].content}</td>
-                                <td>{data[key].resolution}</td>
+                                <td>{data[key].qualityLabel||`${data[key].audioBitrate}k`}</td>
                             </tr>
                         )}
                     </tbody>
